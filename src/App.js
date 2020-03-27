@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import {
+  BrowserRouter as Router,
+  Route,
+} from 'react-router-dom';
 
-export default App;
+import Navigation from './components/navigation';
+import BlockchainPage from './components/blockchain';
+import SignInPage from './components/signin';
+import HomePage from './components/home';
+import AccountPage from './components/account';
+
+import * as ROUTES from './components/routes';
+
+export default class App extends React.Component {
+  render() {
+    return(
+      <Router>
+        <div>
+          <Navigation />
+          <hr />
+          <Route exact path={ROUTES.BLOCKCHAIN} component={BlockchainPage} />
+          <Route exact path={ROUTES.HOME} component={HomePage} />
+          <Route exact path={ROUTES.SIGN_IN} component={SignInPage} />
+          <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
+        </div>
+      </Router>
+    )
+  }
+}
