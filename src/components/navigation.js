@@ -17,6 +17,9 @@ const Navigation = () => (
             <li>
                 <Link to={ROUTES.ACCOUNT}>Account</Link>
             </li>
+            <li>
+                <Link to={ROUTES.REDDIT}>Reddit</Link>
+            </li>
         </ul>
     </div>
 );
